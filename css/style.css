@@ -1,28 +1,53 @@
-.jcarousel {
-    position: relative;
-    overflow: hidden;
+﻿
+body {
+    font-family:Arial;
+    font-size:20px;
+    background: url("../img/bg.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
-/*
-This is the container of the carousel items.
-You must ensure that the position is relative or absolute and
-that the width is big enough to contain all items.
-*/
-.jcarousel div {
-    width: 20000em;
-    position: relative;
 
-    /* Optional, required in this case since it's a <ul> element */
-    list-style: none;
-    margin: 0;
-    padding: 0;
+#carousel {
+    width:960px;
+    margin: 60px auto;
+    height:300px;
+    position:relative;
+    clear:both;
+    overflow:hidden;
+    background: rgba(255, 255, 255, .4);
+}
+#carousel img {
+    visibility:hidden; /* hide images until carousel can handle them */
+    cursor:pointer; /* otherwise it's not as obvious items can be clicked */
 }
 
-/*
-These are the item elements. jCarousel works best, if the items
-have a fixed width and height (but it's not required).
-*/
-.jcarousel img {
-    /* Required only for block elements like <li>'s */
-    float: left;
+.split-left {
+    width:450px;
+    float:left;
+}
+.split-right {
+    width:400px;
+    float:left;
+    margin-left:10px;
+}
+#callback-output {
+    height:250px;
+    overflow:scroll;
+}
+textarea#newoptions {
+    width:430px;
+}
+.nav {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.nav a {
+    margin: 20px 20px;
+    padding: 20px;
+    text-decoration: none;
+    color: #ccc;
+    background: rgba(0, 0, 0, .8);
+    border: solid 1px #000;
 }

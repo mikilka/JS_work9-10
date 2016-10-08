@@ -1,24 +1,63 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Carousel</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.waterwheelCarousel.js"></script>
 </head>
 <body>
-    <div class="jcarousel">
-        <div>
-            <img src="img/b-flag.png" alt="flag1"/>
-            <img src="img/i-flag.png" alt="flag2"/>
-            <img src="img/m-flag.png" alt="flag3"/>
-            <img src="img/n-flag.png" alt="flag4"/>
-            <img src="img/s-flag.png" alt="flag5"/>
-            <img src="img/t-flag.png" alt="flag6"/>
-        </div>
+    <div id="carousel">
+        <a href="#"><img src="img/bhutan.png" alt="bhutan" /></a>
+        <a href="#"><img src="img/india.png" alt="india" /></a>
+        <a href="#"><img src="img/Maldives.png" alt="Maldives" /></a>
+        <a href="#"><img src="img/Nepal.png" alt="nepal" /></a>
+        <a href="#"><img src="img/Shri_Lanka.png" alt="shri-lanka" /></a>
+        <a href="#"><img src="img/tibet.png" alt="tibet" /></a>
     </div>
-    <script>
+    <div class="nav">
+        <a href="#" id="prev">Prev</a>
+        <a href="#" id="next">Next</a>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var carousel = $("#carousel").waterwheelCarousel({
+                flankingItems: 3,
+                movingToCenter: function ($item) {
+                    $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+                },
+                movedToCenter: function ($item) {
+                    $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+                },
+                movingFromCenter: function ($item) {
+                    $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+                },
+                movedFromCenter: function ($item) {
+                    $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+                },
+                clickedCenter: function ($item) {
+                    $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+                }
+            });
 
+            $('#prev').bind('click', function () {
+                carousel.prev();
+                return false
+            });
+
+            $('#next').bind('click', function () {
+                carousel.next();
+                return false;
+            });
+
+            $('#reload').bind('click', function () {
+                newOptions = eval("(" + $('#newoptions').val() + ")");
+                carousel.reload(newOptions);
+                return false;
+            });
+
+        });
     </script>
 </body>
 </html>
