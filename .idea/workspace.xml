@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ea44acf-7086-4200-ad37-1aaa5cc22ea5" name="Default" comment="carousel work">
+    <list default="true" id="3ea44acf-7086-4200-ad37-1aaa5cc22ea5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/JS_work9-10.iml" afterPath="$PROJECT_DIR$/.idea/JS_work9-10.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
@@ -34,8 +34,8 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5831904" vertical-offset="0" max-vertical-offset="1156">
-              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.52487135" vertical-offset="0" max-vertical-offset="1156">
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -199,7 +199,11 @@
       <created>1475953118849</created>
       <updated>1475953118849</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="carousel work second commit">
+      <created>1475953277972</created>
+      <updated>1475953277972</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -243,7 +247,8 @@
     </option>
     <MESSAGE value="first carousel commit" />
     <MESSAGE value="carousel work" />
-    <option name="LAST_COMMIT_MESSAGE" value="carousel work" />
+    <MESSAGE value="carousel work second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="carousel work second commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -267,8 +272,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5831904" vertical-offset="0" max-vertical-offset="1156">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.52487135" vertical-offset="0" max-vertical-offset="1156">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
           <folding />
         </state>
       </provider>
