@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Plugins</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Carousel</title>
+    <link rel="stylesheet" href="css/selectric.css"/>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.waterwheelCarousel.js"></script>
+    <script type="text/javascript" src="js/jquery.selectric.min.js"></script>
 </head>
 <body>
     <div id="carousel">
@@ -19,6 +21,18 @@
     <div class="nav">
         <a href="#" id="prev">Prev</a>
         <a href="#" id="next">Next</a>
+    </div>
+    <div class="select">
+        <select name="unique" id="unique" >
+            <option disabled selected>Please, choose value</option>
+            <option value="value1">value 1</option>
+            <option value="value2">value 2</option>
+            <option value="value3">value 3</option>
+            <option value="value4">value 4</option>
+            <option value="value5">value 5</option>
+            <option value="value6">value 6</option>
+            <option value="value7">value 7</option>
+        </select>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -57,6 +71,11 @@
                 return false;
             });
 
+        });
+    </script>
+    <script>
+        $(function() {
+            $('select').selectric();
         });
     </script>
 </body>
