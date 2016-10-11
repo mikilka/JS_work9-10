@@ -114,11 +114,15 @@ input[type="checkbox"]:checked + label::before {
     overflow: hidden;
 }
 
+.niceNotChecked {
+    background-position: 0 0;
+}
+
 .niceChecked {
     background-position: 0 -17px;
 }
 
-.niceCheck>input {
+.niceCheck input {
     margin-left: -100px;
 }
 
