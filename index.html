@@ -4,125 +4,49 @@
     <meta charset="UTF-8">
     <title>Plugins</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/dropdown.css">
     <link rel="stylesheet" href="css/selectric.css"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.waterwheelCarousel.js"></script>
     <script type="text/javascript" src="js/jquery.selectric.min.js"></script>
-    <script type="text/javascript">
-
-        jQuery(document).ready(function(){
-
-            jQuery(".niceCheck").each(
-                    /* при загрузке страницы меняем обычные на стильные checkbox */
-                    function() {
-
-                        changeCheckStart(jQuery(this));
-
-                    });
-
-        });
-
-
-        function changeCheck(el)
-            /*
-             функция смены вида и значения чекбокса при клике на контейнер чекбокса (тот, котрый отвечает за новый вид)
-             el - span контейнер для обычного чекбокса
-             input - чекбокс
-             */
-        {
-
-            var el = el,
-                    input = el.find("input").eq(0);
-
-            if(el.attr("class").indexOf("niceCheckDisabled")==-1)
-            {
-                if(!input.attr("checked")) {
-                    el.addClass("niceChecked");
-                    input.attr("checked", true);
-                } else {
-                    el.removeClass("niceChecked");
-                    input.attr("checked", false).focus();
-                }
-            }
-
-            return true;
-        }
-
-        function changeVisualCheck(input)
-        {
-            /*
-             меняем вид чекбокса при смене значения
-             */
-            var wrapInput = input.parent();
-            if(!input.attr("checked")) {
-                wrapInput.addClass("niceNotChecked");
-            }
-            else
-            {
-                wrapInput.addClass("niceChecked");
-            }
-        }
-
-        function changeCheckStart(el)
-            /*
-             новый чекбокс выглядит так <span class="niceCheck"><input type="checkbox" name="[name check]" id="[id check]" [checked="checked"] /></span>
-             новый чекбокс получает теже name, id и другие атрибуты что и были у обычного
-             */
-        {
-
-            try
-            {
-                var el = el,
-                    checkName = el.attr("name"),
-                    checkId = el.attr("id"),
-                    checkChecked = el.attr("checked"),
-                    checkDisabled = el.attr("disabled"),
-                    checkValue = el.attr("value");
-                    checkTab = el.attr("tabindex");
-                if(checkChecked)
-//                i think mistake is in after, but what i must to do?
-                    el.after("<span class='niceCheck niceChecked'>"+
-                            "<input type='checkbox'"+" "+
-                            "name='"+checkName+"'"+" "+
-                            "id='"+checkId+"'"+" "+
-                            "checked='"+checkChecked+"'"+" "+
-                            "value='"+checkValue+"'"+" "+
-                            "tabindex='"+checkTab+"' /></span>");
-                else
-                    el.after("<span class='niceCheck'>"+
-                            "<input type='checkbox'"+" "+
-                            "name='"+checkName+"'"+" "+
-                            "id='"+checkId+"'"+" "+
-                            "value='"+checkValue+"'"+" "+
-                            "tabindex='"+checkTab+"' /></span>");
-
-                /* если checkbox disabled - добавляем соотвсмтвующи класс для нужного вида и добавляем атрибут disabled для вложенного chekcbox */
-                if(checkDisabled)
-                {
-                    el.next().addClass("niceCheckDisabled");
-                    el.next().find("input").eq(0).attr("disabled","disabled");
-                }
-
-                /* цепляем обработчики стилизированным checkbox */
-                el.next().bind("mousedown", function(e) { changeCheck(jQuery(this)) });
-                el.next().find("input").eq(0).bind("change", function(e) { changeVisualCheck(jQuery(this)) });
-                el.remove();
-                if(jQuery.browser.msie)
-                {
-                    el.next().find("input").eq(0).bind("click", function(e) { changeVisualCheck(jQuery(this)) });
-                }
-            }
-            catch(e)
-            {
-                // если ошибка, ничего не делаем
-            }
-
-            return true;
-        }
-
-    </script>
 </head>
 <body>
+    <nav>
+        <ul class="content clearfix">
+            <li><a href="#">Nav 1</a></li>
+            <li><a href="#">Nav 2</a></li>
+            <li class="dropdown">
+                <a href="#">Nav 3</a>
+                <ul class="sub-menu">
+                    <li><a href="#">Nav 3.1</a></li>
+                    <li><a href="#">Nav 3.2</a></li>
+                    <li><a href="#">Nav 3.3</a></li>
+                    <li class="dropdown">
+                        <a href="#">Nav 3.4</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Nav 3.4.1</a></li>
+                            <li class="dropdown">
+                                <a href="#">Nav 3.4.2</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Nav 3.4.2.1</a></li>
+                                    <li><a href="#">Nav 3.4.2.2</a></li>
+                                    <li><a href="#">Nav 3.4.2.3</a></li>
+                                    <li><a href="#">Nav 3.4.2.4</a></li>
+                                    <li><a href="#">Nav 3.4.2.5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Nav 3.4.3</a></li>
+                            <li><a href="#">Nav 3.4.4</a></li>
+                            <li><a href="#">Nav 3.4.5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Nav 3.5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Nav 4</a></li>
+            <li><a href="#">Nav 5</a></li>
+        </ul>
+    </nav>
     <div id="carousel">
         <a href="#"><img src="img/bhutan.png" alt="bhutan" /></a>
         <a href="#"><img src="img/india.png" alt="india" /></a>
@@ -162,9 +86,9 @@
     <div class="jquery-checkboxes">
         <h3>jQuery checkboxes</h3>
         <form action="#">
-            <div><label for="ch1">label 1</label><input type="checkbox" class="niceCheck" id="ch1" tabindex="1" /> </div>
-            <div><label for="ch2">label 2</label><input type="checkbox" class="niceCheck" checked="checked" id="ch2" tabindex="2" value="2" /></div>
-            <div><label for="ch3">label 3</label><input type="checkbox" class="niceCheck" id="ch3" checked="checked" disabled="disabled" /></div>
+            <div><label class="jLabel" for="ch1">label 1</label><input type="checkbox" class="niceCheck" id="ch1" tabindex="1" /> </div>
+            <div><label class="jLabel" for="ch2">label 2</label><input type="checkbox" class="niceCheck" checked="id="ch2" tabindex="2" value="2" /></div>
+            <div><label class="jLabel" for="ch3">label 3</label><input type="checkbox" class="niceCheck" id="ch3" disabled="disabled" /></div>
         </form>
 
     </div>
@@ -210,6 +134,31 @@
     <script>
         $(function() {
             $('select').selectric();
+        });
+    </script>
+    <!-- скрипт для jQuery checkboxes -->
+    <script>
+        $(document).ready(function () {
+            $('.jLabel').after("<span class='niceCheck'>");
+            $('.jLabel').next().click(function () {
+                $(this).toggleClass('niceChecked');
+                console.log('test');
+            });
+        });
+        $('label').click(function () {
+            $(this).next().toggleClass('niceChecked');
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $( '.dropdown' ).hover(
+                function(){
+                    $(this).children('.sub-menu').slideDown(200);
+                },
+                function(){
+                    $(this).children('.sub-menu').slideUp(200);
+                }
+            );
         });
     </script>
 </body>
